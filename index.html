@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Typing</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #ascii-art {
+            white-space: pre;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #666;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ascii-art"></div>
+
+<div class="button-container">
+    <button onclick="window.open('https://pumpfun.com', '_blank')">Pumpfun</button>
+    <button onclick="window.open('https://twitter.com', '_blank')">Twitter</button>
+    <button onclick="window.open('https://telegram.org', '_blank')">Telegram</button>
+</div>
+
+<script>
+    const asciiArt = `
+   _______  _______  _______  _______  __   __ 
+|  _    ||       ||       ||       ||  | |  |
+| |_|   ||   _   ||   _   ||_     _||  |_|  |
+|       ||  | |  ||  | |  |  |   |  |       |
+|  _   | |  |_|  ||  |_|  |  |   |  |_     _|
+| |_|   ||       ||       |  |   |    |   |  
+|_______||_______||_______|  |___|    |___|  
+`;
+
+    const asciiElement = document.getElementById('ascii-art');
+
+    let index = 0;
+    function typeAsciiArt() {
+        if (index < asciiArt.length) {
+            asciiElement.textContent += asciiArt[index];
+            index++;
+            setTimeout(typeAsciiArt, 5); // Adjust typing speed here
+        }
+    }
+
+    typeAsciiArt();
+</script>
+
+</body>
+</html>
